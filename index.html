@@ -78,46 +78,133 @@
         </div>
     </header>
 
-    <div id="sales-view" class="hidden">
-        <section class="bg-white py-20 md:py-32">
-            <div class="max-w-5xl mx-auto px-4 text-center">
-                <h1 data-i18n="sales_hero_title" class="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">Recupera el Control. Vive con Tranquilidad.</h1>
+    <div id="sales-view" class="hidden font-sans">
+        <!-- Section 1: Hero -->
+        <section class="bg-white py-20 md:py-32 relative overflow-hidden">
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+            <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+                <p data-i18n="sales_hero_pre" class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-6">Tu copiloto invisible</p>
+                <h1 data-i18n="sales_hero_title" class="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-tight">Recupera el Control. Vive con Tranquilidad.</h1>
                 <p data-i18n="sales_hero_subtitle" class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
-                    MiAsisMed no es solo una app de recordatorios. Es tu copiloto invisible que cuida de ti y de tu familia, devolviéndote la autonomía que mereces.
+                    MiAsisMed no es solo una app de recordatorios. Es la tecnología que te permite olvidarte de la enfermedad para que puedas concentrarte en vivir.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button data-i18n="sales_cta" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg shadow-blue-200 transition-all hover:scale-105">Empieza a Vivir Tranquilo</button>
+                    <button data-i18n="sales_cta" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl shadow-blue-200 transition-all hover:scale-105">Empieza a Vivir Tranquilo</button>
                     <button data-i18n="sales_secondary" class="bg-slate-50 hover:bg-slate-100 text-slate-700 px-10 py-5 rounded-2xl font-bold text-lg border border-slate-200 transition-all">Ver cómo funciona</button>
                 </div>
             </div>
         </section>
 
-        <section class="bg-slate-50 py-24">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="text-4xl mb-6">🧘‍♂️</div>
-                    <h3 data-i18n="sales_benefit_1_title" class="text-2xl font-bold text-slate-900 mb-4">Descanso Mental Total</h3>
-                    <p data-i18n="sales_benefit_1_desc" class="text-slate-600 leading-relaxed">Deja de preocuparte por "si ya te la tomaste". MiAsisMed vigila por ti para que tú solo te ocupes de disfrutar.</p>
+        <!-- Section 2: Identification (Profiles) -->
+        <section class="py-24 bg-slate-50 border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 data-i18n="sales_profiles_title" class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Diseñado para tu realidad</h2>
+                    <p data-i18n="sales_profiles_subtitle" class="text-slate-600 max-w-2xl mx-auto">Sea cual sea tu situación, MiAsisMed se adapta a tu ritmo, no al revés.</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="text-4xl mb-6">🛡️</div>
-                    <h3 data-i18n="sales_benefit_2_title" class="text-2xl font-bold text-slate-900 mb-4">Tu Autonomía es Sagrada</h3>
-                    <p data-i18n="sales_benefit_2_desc" class="text-slate-600 leading-relaxed">Diseñada para ser invisible. Sin burocracia, sin complicaciones. Mantén tu independencia con elegancia.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="text-4xl mb-6">❤️</div>
-                    <h3 data-i18n="sales_benefit_3_title" class="text-2xl font-bold text-slate-900 mb-4">Tranquilidad Familiar</h3>
-                    <p data-i18n="sales_benefit_3_desc" class="text-slate-600 leading-relaxed">Elimina la tensión con tus seres queridos. Ellos estarán tranquilos sabiendo que estás protegido.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl mb-6">🏥</div>
+                        <h4 data-i18n="sales_prof_1_title" class="text-xl font-bold text-slate-800 mb-2">Si manejas una condición crónica</h4>
+                        <p data-i18n="sales_prof_1_desc" class="text-slate-600 text-sm leading-relaxed">Vuelve a sentirte funcional. La app se encarga de la vigilancia para que tú recuperes tu independencia.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center text-2xl mb-6">🤝</div>
+                        <h4 data-i18n="sales_prof_2_title" class="text-xl font-bold text-slate-800 mb-2">Si eres hijo/a cuidador</h4>
+                        <p data-i18n="sales_prof_2_desc" class="text-slate-600 text-sm leading-relaxed">Libérate del agotamiento mental. Mantén la seguridad de tus padres sin la necesidad de preguntar constantemente.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-2xl mb-6">⚡</div>
+                        <h4 data-i18n="sales_prof_3_title" class="text-xl font-bold text-slate-800 mb-2">Tras un susto médico</h4>
+                        <p data-i18n="sales_prof_3_desc" class="text-slate-600 text-sm leading-relaxed">Que no vuelva a pasar. Transforma la ansiedad en seguridad con un sistema que nunca olvida.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Section 3: The Desires (Benefits) -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-12">
+                    <h2 data-i18n="sales_benefits_title" class="text-4xl font-bold text-slate-900 leading-tight">Más que una app, tu nueva paz mental.</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-10 h-10 bg-green-500 text-white rounded-full flex-shrink-0 flex items-center justify-center font-bold">✓</div>
+                            <div>
+                                <h4 data-i18n="desire_1_title" class="text-xl font-bold text-slate-800">Sentirse funcional otra vez</h4>
+                                <p data-i18n="desire_1_desc" class="text-slate-600 mt-2">Recupera la sensación de orden y estabilidad. Tú tienes el control, nosotros la vigilancia.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-10 h-10 bg-green-500 text-white rounded-full flex-shrink-0 flex items-center justify-center font-bold">✓</div>
+                            <div>
+                                <h4 data-i18n="desire_2_title" class="text-xl font-bold text-slate-800">Dejar de pensar en la enfermedad</h4>
+                                <p data-i18n="desire_2_desc" class="text-slate-600 mt-2">Externaliza la carga mental. Vive tu día sin que las pastillas sean el centro de tu atención.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-10 h-10 bg-green-500 text-white rounded-full flex-shrink-0 flex items-center justify-center font-bold">✓</div>
+                            <div>
+                                <h4 data-i18n="desire_3_title" class="text-xl font-bold text-slate-800">Tranquilidad moral</h4>
+                                <p data-i18n="desire_3_desc" class="text-slate-600 mt-2">La validación de saber que estás haciendo las cosas bien. Sin culpas, sin dudas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-blue-600 rounded-[3rem] p-12 text-white relative shadow-2xl shadow-blue-200">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-blue-400 rounded-full opacity-20 blur-xl"></div>
+                    <p class="text-5xl font-bold mb-6 opacity-20">“</p>
+                    <p data-i18n="sales_main_quote" class="text-2xl font-medium leading-relaxed mb-8 italic">"MiAsisMed no es un recordatorio, es la prótesis cognitiva que me permite seguir siendo yo mismo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl">👤</div>
+                        <div>
+                            <p class="font-bold">Anónimo</p>
+                            <p class="text-blue-200 text-sm">Usuario desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Simplicity (Barriers) -->
+        <section class="py-24 bg-slate-900 text-white overflow-hidden relative">
+            <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+                <h2 data-i18n="sales_barriers_title" class="text-4xl font-bold mb-8">Sin complicaciones, sin estrés.</h2>
+                <p data-i18n="sales_barriers_subtitle" class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-16">
+                    Sabemos que no quieres "otra cosa más que administrar". Por eso MiAsisMed es invisible: fácil de usar, amigable y cero burocrático.
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                        <p class="text-2xl mb-4">✨</p>
+                        <p data-i18n="sales_simple_1" class="font-bold">Cero Fricción</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                        <p class="text-2xl mb-4">📱</p>
+                        <p data-i18n="sales_simple_2" class="font-bold">Interfaz Amigable</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                        <p class="text-2xl mb-4">☁️</p>
+                        <p data-i18n="sales_simple_3" class="font-bold">Sincronización Total</p>
+                    </div>
+                    <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                        <p class="text-2xl mb-4">🔒</p>
+                        <p data-i18n="sales_simple_4" class="font-bold">Privacidad Absoluta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Family (Final Trigger) -->
         <section class="py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 data-i18n="sales_trust_title" class="text-3xl font-bold text-slate-900 mb-16 italic">"Ahora alguien —o algo— me ayuda a sostener mi vida."</h2>
-                <div class="bg-blue-50 p-10 rounded-[3rem] border border-blue-100">
-                    <p data-i18n="sales_final_pitch" class="text-2xl text-blue-900 font-medium leading-relaxed">No estamos vendiendo una aplicación. Estamos reparando la sensación de libertad.</p>
+                <h2 data-i18n="sales_family_title" class="text-4xl font-bold text-slate-900 mb-8 leading-tight text-center">Un acto de amor para los tuyos</h2>
+                <p data-i18n="sales_family_desc" class="text-xl text-slate-600 leading-relaxed mb-12">
+                    Tus hijos y tu pareja merecen verte bien. Regálales la tranquilidad de saber que estás protegido. MiAsisMed no solo te cuida a ti, cuida la calma de toda tu familia.
+                </p>
+                <div class="bg-blue-50 p-12 rounded-[3rem] border border-blue-100 mb-12">
+                    <p data-i18n="sales_final_pitch" class="text-3xl text-blue-900 font-bold leading-tight">No estamos vendiendo una aplicación. Estamos reparando la sensación de libertad.</p>
                 </div>
+                <button data-i18n="sales_cta" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl shadow-blue-200 transition-all hover:scale-105">Empieza a Vivir Tranquilo</button>
             </div>
         </section>
     </div>
@@ -268,17 +355,29 @@
         const i18n = {
             es: {
                 nav_brand_suffix: "Estrategia",
+                sales_hero_pre: "Tu copiloto invisible",
                 sales_hero_title: "Recupera el Control. Vive con Tranquilidad.",
-                sales_hero_subtitle: "MiAsisMed no es solo una app de recordatorios. Es tu copiloto invisible que cuida de ti y de tu familia, devolviéndote la autonomía que mereces.",
+                sales_hero_subtitle: "MiAsisMed no es solo una app de recordatorios. Es la tecnología que te permite olvidarte de la enfermedad para que puedas concentrarte en vivir.",
                 sales_cta: "Empieza a Vivir Tranquilo",
                 sales_secondary: "Ver cómo funciona",
-                sales_benefit_1_title: "Descanso Mental Total",
-                sales_benefit_1_desc: "Deja de preocuparte por \"si ya te la tomaste\". MiAsisMed vigila por ti para que tú solo te ocupes de disfrutar.",
-                sales_benefit_2_title: "Tu Autonomía es Sagrada",
-                sales_benefit_2_desc: "Diseñada para ser invisible. Sin burocracia, sin complicaciones. Mantén tu independencia con elegancia.",
-                sales_benefit_3_title: "Tranquilidad Familiar",
-                sales_benefit_3_desc: "Elimina la tensión con tus seres queridos. Ellos estarán tranquilos sabiendo que estás protegido.",
-                sales_trust_title: "\"Ahora alguien —o algo— me ayuda a sostener mi vida.\"",
+                sales_profiles_title: "Diseñado para tu realidad",
+                sales_profiles_subtitle: "Sea cual sea tu situación, MiAsisMed se adapta a tu ritmo, no al revés.",
+                sales_prof_1_title: "Si manejas una condición crónica",
+                sales_prof_1_desc: "Vuelve a sentirte funcional. La app se encarga de la vigilancia para que tú recuperes tu independencia.",
+                sales_prof_2_title: "Si eres hijo/a cuidador",
+                sales_prof_2_desc: "Libérate del agotamiento mental. Mantén la seguridad de tus padres sin la necesidad de preguntar constantemente.",
+                sales_prof_3_title: "Tras un susto médico",
+                sales_prof_3_desc: "Que no vuelva a pasar. Transforma la ansiedad en seguridad con un sistema que nunca olvida.",
+                sales_benefits_title: "Más que una app, tu nueva paz mental.",
+                sales_main_quote: "\"MiAsisMed no es un recordatorio, es la prótesis cognitiva que me permite seguir siendo yo mismo.\"",
+                sales_barriers_title: "Sin complicaciones, sin estrés.",
+                sales_barriers_subtitle: "Sabemos que no quieres \"otra cosa más que administrar\". Por eso MiAsisMed es invisible: fácil de usar, amigable y cero burocrático.",
+                sales_simple_1: "Cero Fricción",
+                sales_simple_2: "Interfaz Amigable",
+                sales_simple_3: "Sincronización Total",
+                sales_simple_4: "Privacidad Absoluta",
+                sales_family_title: "Un acto de amor para los tuyos",
+                sales_family_desc: "Tus hijos y tu pareja merecen verte bien. Regálales la tranquilidad de saber que estás protegido. MiAsisMed no solo te cuida a ti, cuida la calma de toda tu familia.",
                 sales_final_pitch: "No estamos vendiendo una aplicación. Estamos reparando la sensación de libertad.",
                 nav_profiles: "Perfiles Psicológicos",
                 nav_emotions: "Miedos y Deseos",
@@ -360,17 +459,29 @@
             },
             en: {
                 nav_brand_suffix: "Strategy",
+                sales_hero_pre: "Your invisible copilot",
                 sales_hero_title: "Regain Control. Live with Peace of Mind.",
-                sales_hero_subtitle: "MiAsisMed isn't just a reminder app. It's your invisible copilot that looks after you and your family, giving you back the autonomy you deserve.",
+                sales_hero_subtitle: "MiAsisMed isn't just a reminder app. It's the technology that lets you forget about the illness so you can focus on living.",
                 sales_cta: "Start Living Peacefully",
                 sales_secondary: "See how it works",
-                sales_benefit_1_title: "Total Mental Rest",
-                sales_benefit_1_desc: "Stop worrying about 'if you already took it'. MiAsisMed watches for you so you can focus on enjoying life.",
-                sales_benefit_2_title: "Your Autonomy is Sacred",
-                sales_benefit_2_desc: "Designed to be invisible. No bureaucracy, no complications. Maintain your independence with elegance.",
-                sales_benefit_3_title: "Family Peace of Mind",
-                sales_benefit_3_desc: "Eliminate tension with your loved ones. They will be calm knowing you are protected.",
-                sales_trust_title: "\"Now someone —or something— is helping me sustain my life.\"",
+                sales_profiles_title: "Designed for your reality",
+                sales_profiles_subtitle: "Whatever your situation, MiAsisMed adapts to your pace, not the other way around.",
+                sales_prof_1_title: "If you manage a chronic condition",
+                sales_prof_1_desc: "Feel functional again. The app handles the vigilance so you regain your independence.",
+                sales_prof_2_title: "If you are a child caregiver",
+                sales_prof_2_desc: "Free yourself from mental burnout. Keep your parents safe without the need to constantly ask.",
+                sales_prof_3_title: "After a medical scare",
+                sales_prof_3_desc: "Don't let it happen again. Transform anxiety into security with a system that never forgets.",
+                sales_benefits_title: "More than an app, your new peace of mind.",
+                sales_main_quote: "\"MiAsisMed isn't a reminder, it's the cognitive prosthesis that allows me to keep being myself.\"",
+                sales_barriers_title: "No complications, no stress.",
+                sales_barriers_subtitle: "We know you don't want \"another thing to manage\". That's why MiAsisMed is invisible: easy to use, friendly, and zero bureaucratic.",
+                sales_simple_1: "Zero Friction",
+                sales_simple_2: "User-Friendly",
+                sales_simple_3: "Total Sync",
+                sales_simple_4: "Absolute Privacy",
+                sales_family_title: "An act of love for your loved ones",
+                sales_family_desc: "Your children and partner deserve to see you well. Give them the peace of mind of knowing you are protected. MiAsisMed doesn't just look after you, it looks after the calm of your entire family.",
                 sales_final_pitch: "We are not selling an application. We are repairing the sense of freedom.",
                 nav_profiles: "Psychological Profiles",
                 nav_emotions: "Fears and Desires",
