@@ -1,5 +1,14 @@
 # 🚀 Bitácora de Sincronización Remota - miasismed_landing
 
+## [V.1.1.0] - 2026-05-07
+### 📦 Registro de Despacho
+- **Cambios Consolidados:**
+    - Implementación de la **Vista Cliente (B2C)** integrada.
+    - Sistema de toggle de modo (Análisis vs. Cliente) en Navbar.
+    - Copywriting persuasivo multi-idioma.
+    - Actualización de bitácoras de versiones y manual de reconstrucción.
+- **Estado:** Pendiente de sincronización final.
+
 ## [V.1.0.0] - 2026-05-07
 ### 📦 Registro de Despacho
 - **Repositorio:** `https://github.com/crucies/miasismed_landing`

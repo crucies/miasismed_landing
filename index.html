@@ -50,6 +50,11 @@
                     <a href="#voc" data-i18n="nav_voc" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Voz del Cliente</a>
                     <a href="#estrategia" data-i18n="nav_strategy" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Barreras y Triggers</a>
                     <div class="h-6 w-px bg-slate-200"></div>
+                    <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
+                        <button id="mode-analysis" onclick="setViewMode('analysis')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-blue-700 shadow-sm">ANALYSIS</button>
+                        <button id="mode-sales" onclick="setViewMode('sales')" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-slate-700">CLIENT</button>
+                    </div>
+                    <div class="h-6 w-px bg-slate-200"></div>
                     <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-all border border-slate-200 text-slate-700 font-bold text-xs uppercase">
                         <span id="lang-flag">🇺🇸</span>
                         <span id="lang-text">EN</span>
@@ -59,7 +64,7 @@
         </div>
     </nav>
 
-    <header class="bg-gradient-to-b from-slate-100 to-slate-50 py-16 md:py-24 border-b border-slate-200">
+    <header id="header-analysis" class="bg-gradient-to-b from-slate-100 to-slate-50 py-16 md:py-24 border-b border-slate-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <p data-i18n="hero_pre" class="text-blue-600 font-bold uppercase tracking-wider text-sm mb-4">Análisis de Neuromarketing</p>
             <h1 data-i18n="hero_title" class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">La App como Copiloto Invisible y Prótesis Cognitiva</h1>
@@ -73,7 +78,51 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+    <div id="sales-view" class="hidden">
+        <section class="bg-white py-20 md:py-32">
+            <div class="max-w-5xl mx-auto px-4 text-center">
+                <h1 data-i18n="sales_hero_title" class="text-5xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight">Recupera el Control. Vive con Tranquilidad.</h1>
+                <p data-i18n="sales_hero_subtitle" class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
+                    MiAsisMed no es solo una app de recordatorios. Es tu copiloto invisible que cuida de ti y de tu familia, devolviéndote la autonomía que mereces.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button data-i18n="sales_cta" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg shadow-blue-200 transition-all hover:scale-105">Empieza a Vivir Tranquilo</button>
+                    <button data-i18n="sales_secondary" class="bg-slate-50 hover:bg-slate-100 text-slate-700 px-10 py-5 rounded-2xl font-bold text-lg border border-slate-200 transition-all">Ver cómo funciona</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-slate-50 py-24">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="text-4xl mb-6">🧘‍♂️</div>
+                    <h3 data-i18n="sales_benefit_1_title" class="text-2xl font-bold text-slate-900 mb-4">Descanso Mental Total</h3>
+                    <p data-i18n="sales_benefit_1_desc" class="text-slate-600 leading-relaxed">Deja de preocuparte por "si ya te la tomaste". MiAsisMed vigila por ti para que tú solo te ocupes de disfrutar.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="text-4xl mb-6">🛡️</div>
+                    <h3 data-i18n="sales_benefit_2_title" class="text-2xl font-bold text-slate-900 mb-4">Tu Autonomía es Sagrada</h3>
+                    <p data-i18n="sales_benefit_2_desc" class="text-slate-600 leading-relaxed">Diseñada para ser invisible. Sin burocracia, sin complicaciones. Mantén tu independencia con elegancia.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="text-4xl mb-6">❤️</div>
+                    <h3 data-i18n="sales_benefit_3_title" class="text-2xl font-bold text-slate-900 mb-4">Tranquilidad Familiar</h3>
+                    <p data-i18n="sales_benefit_3_desc" class="text-slate-600 leading-relaxed">Elimina la tensión con tus seres queridos. Ellos estarán tranquilos sabiendo que estás protegido.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 data-i18n="sales_trust_title" class="text-3xl font-bold text-slate-900 mb-16 italic">"Ahora alguien —o algo— me ayuda a sostener mi vida."</h2>
+                <div class="bg-blue-50 p-10 rounded-[3rem] border border-blue-100">
+                    <p data-i18n="sales_final_pitch" class="text-2xl text-blue-900 font-medium leading-relaxed">No estamos vendiendo una aplicación. Estamos reparando la sensación de libertad.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <main id="analysis-view" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
 
         <section id="perfiles" class="scroll-mt-20">
             <div class="mb-8">
@@ -219,6 +268,18 @@
         const i18n = {
             es: {
                 nav_brand_suffix: "Estrategia",
+                sales_hero_title: "Recupera el Control. Vive con Tranquilidad.",
+                sales_hero_subtitle: "MiAsisMed no es solo una app de recordatorios. Es tu copiloto invisible que cuida de ti y de tu familia, devolviéndote la autonomía que mereces.",
+                sales_cta: "Empieza a Vivir Tranquilo",
+                sales_secondary: "Ver cómo funciona",
+                sales_benefit_1_title: "Descanso Mental Total",
+                sales_benefit_1_desc: "Deja de preocuparte por \"si ya te la tomaste\". MiAsisMed vigila por ti para que tú solo te ocupes de disfrutar.",
+                sales_benefit_2_title: "Tu Autonomía es Sagrada",
+                sales_benefit_2_desc: "Diseñada para ser invisible. Sin burocracia, sin complicaciones. Mantén tu independencia con elegancia.",
+                sales_benefit_3_title: "Tranquilidad Familiar",
+                sales_benefit_3_desc: "Elimina la tensión con tus seres queridos. Ellos estarán tranquilos sabiendo que estás protegido.",
+                sales_trust_title: "\"Ahora alguien —o algo— me ayuda a sostener mi vida.\"",
+                sales_final_pitch: "No estamos vendiendo una aplicación. Estamos reparando la sensación de libertad.",
                 nav_profiles: "Perfiles Psicológicos",
                 nav_emotions: "Miedos y Deseos",
                 nav_voc: "Voz del Cliente",
@@ -299,6 +360,18 @@
             },
             en: {
                 nav_brand_suffix: "Strategy",
+                sales_hero_title: "Regain Control. Live with Peace of Mind.",
+                sales_hero_subtitle: "MiAsisMed isn't just a reminder app. It's your invisible copilot that looks after you and your family, giving you back the autonomy you deserve.",
+                sales_cta: "Start Living Peacefully",
+                sales_secondary: "See how it works",
+                sales_benefit_1_title: "Total Mental Rest",
+                sales_benefit_1_desc: "Stop worrying about 'if you already took it'. MiAsisMed watches for you so you can focus on enjoying life.",
+                sales_benefit_2_title: "Your Autonomy is Sacred",
+                sales_benefit_2_desc: "Designed to be invisible. No bureaucracy, no complications. Maintain your independence with elegance.",
+                sales_benefit_3_title: "Family Peace of Mind",
+                sales_benefit_3_desc: "Eliminate tension with your loved ones. They will be calm knowing you are protected.",
+                sales_trust_title: "\"Now someone —or something— is helping me sustain my life.\"",
+                sales_final_pitch: "We are not selling an application. We are repairing the sense of freedom.",
                 nav_profiles: "Psychological Profiles",
                 nav_emotions: "Fears and Desires",
                 nav_voc: "Voice of the Customer",
@@ -386,6 +459,33 @@
             currentLang = currentLang === 'es' ? 'en' : 'es';
             localStorage.setItem('preferredLang', currentLang);
             updateContent();
+        }
+
+        function setViewMode(mode) {
+            const analysisView = document.getElementById('analysis-view');
+            const analysisHeader = document.getElementById('header-analysis');
+            const salesView = document.getElementById('sales-view');
+            const btnAnalysis = document.getElementById('mode-analysis');
+            const btnSales = document.getElementById('mode-sales');
+
+            if (mode === 'sales') {
+                analysisView.classList.add('hidden');
+                analysisHeader.classList.add('hidden');
+                salesView.classList.remove('hidden');
+                btnSales.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-blue-700 shadow-sm';
+                btnAnalysis.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-slate-700';
+            } else {
+                analysisView.classList.remove('hidden');
+                analysisHeader.classList.remove('hidden');
+                salesView.classList.add('hidden');
+                btnAnalysis.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-white text-blue-700 shadow-sm';
+                btnSales.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500 hover:text-slate-700';
+                // Refresh charts if needed when coming back to analysis
+                setTimeout(() => {
+                    if (radarChartInstance) radarChartInstance.update();
+                    if (fearsChartInstance) fearsChartInstance.update();
+                }, 100);
+            }
         }
 
         function updateContent() {
