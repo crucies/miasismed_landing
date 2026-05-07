@@ -44,11 +44,16 @@
                     <span class="text-2xl">🧠</span>
                     <span class="font-bold text-xl tracking-tight text-blue-700">VitaMemo<span class="text-slate-800 font-normal">Strategy</span></span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#perfiles" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Perfiles Psicológicos</a>
-                    <a href="#emociones" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Miedos y Deseos</a>
-                    <a href="#voc" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Voz del Cliente</a>
-                    <a href="#estrategia" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Barreras y Triggers</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#perfiles" data-i18n="nav_profiles" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Perfiles Psicológicos</a>
+                    <a href="#emociones" data-i18n="nav_emotions" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Miedos y Deseos</a>
+                    <a href="#voc" data-i18n="nav_voc" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Voz del Cliente</a>
+                    <a href="#estrategia" data-i18n="nav_strategy" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Barreras y Triggers</a>
+                    <div class="h-6 w-px bg-slate-200"></div>
+                    <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-all border border-slate-200 text-slate-700 font-bold text-xs uppercase">
+                        <span id="lang-flag">🇺🇸</span>
+                        <span id="lang-text">EN</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -56,14 +61,14 @@
 
     <header class="bg-gradient-to-b from-slate-100 to-slate-50 py-16 md:py-24 border-b border-slate-200">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <p class="text-blue-600 font-bold uppercase tracking-wider text-sm mb-4">Análisis de Neuromarketing</p>
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">La App como Copiloto Invisible y Prótesis Cognitiva</h1>
-            <p class="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
+            <p data-i18n="hero_pre" class="text-blue-600 font-bold uppercase tracking-wider text-sm mb-4">Análisis de Neuromarketing</p>
+            <h1 data-i18n="hero_title" class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">La App como Copiloto Invisible y Prótesis Cognitiva</h1>
+            <p data-i18n="hero_desc" class="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
                 El usuario no compra un software de recordatorios; compra una sensación de control sobre una amenaza silenciosa: <strong>el deterioro</strong>. Este dashboard interactivo desglosa la estrategia psicológica para conectar con la identidad, la autonomía y el miedo a la fragilidad de nuestro cliente ideal.
             </p>
             <div class="inline-flex items-center justify-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
                 <span class="text-xl">🎯</span>
-                <span class="font-medium text-slate-700">Objetivo: Vender la reparación de la autonomía</span>
+                <span data-i18n="hero_obj" class="font-medium text-slate-700">Objetivo: Vender la reparación de la autonomía</span>
             </div>
         </div>
     </header>
@@ -73,9 +78,9 @@
         <section id="perfiles" class="scroll-mt-20">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">👥</span> Perfiles Psicológicos
+                    <span class="text-3xl">👥</span> <span data-i18n="profiles_title">Perfiles Psicológicos</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                <p data-i18n="profiles_desc" class="text-slate-600 max-w-3xl leading-relaxed">
                     Esta sección analiza los diferentes tipos de usuarios de VitaMemo. Aunque sus circunstancias varían, comparten un núcleo psicológico: la saturación cognitiva y el terror a que un "error pequeño" sea irreversible. Explora cada perfil para visualizar cómo se distribuye su carga emocional.
                 </p>
             </div>
@@ -86,7 +91,7 @@
                 
                 <div class="lg:col-span-8 bg-slate-50 rounded-xl p-6 border border-slate-100 flex flex-col items-center justify-center">
                     <div class="w-full mb-6 text-center">
-                        <h3 id="profile-title" class="text-2xl font-bold text-slate-800 mb-2">Selecciona un perfil</h3>
+                        <h3 id="profile-title" data-i18n="profiles_select" class="text-2xl font-bold text-slate-800 mb-2">Selecciona un perfil</h3>
                         <p id="profile-desc" class="text-slate-600 min-h-[3rem]"></p>
                     </div>
                     <div class="chart-container w-full">
@@ -99,16 +104,16 @@
         <section id="emociones" class="scroll-mt-20">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">⚖️</span> Eje Emocional: Miedos vs Deseos
+                    <span class="text-3xl">⚖️</span> <span data-i18n="emociones_title">Eje Emocional: Miedos vs Deseos</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                <p data-i18n="emotions_desc" class="text-slate-600 max-w-3xl leading-relaxed">
                     Las decisiones de compra son impulsadas por el sistema límbico. Aquí visualizamos los miedos profundos (aquellos que afectan el autoconcepto y rara vez se admiten) frente a los deseos secretos que la aplicación satisface. Entender este balance es crucial para la comunicación.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Los 3 Miedos Inadmitidos</h3>
+                    <h3 data-i18n="fears_title" class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Los 3 Miedos Inadmitidos</h3>
                     <div class="chart-container mb-6">
                         <canvas id="fearsChart"></canvas>
                     </div>
@@ -117,33 +122,33 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Deseos Secretos de Compra</h3>
+                    <h3 data-i18n="desires_title" class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Deseos Secretos de Compra</h3>
                     <div class="space-y-6 mt-4">
                         <div class="flex items-start gap-4">
                             <div class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">1</div>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Sentirse funcional otra vez</h4>
-                                <p class="text-slate-600 text-sm mt-1">Recuperar la sensación de orden y estabilidad personal. "Quiero volver a sentir que tengo mi vida bajo control."</p>
+                                <h4 data-i18n="desire_1_title" class="font-bold text-slate-800 text-lg">Sentirse funcional otra vez</h4>
+                                <p data-i18n="desire_1_desc" class="text-slate-600 text-sm mt-1">Recuperar la sensación de orden y estabilidad personal. "Quiero volver a sentir que tengo mi vida bajo control."</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">2</div>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Dejar de pensar en la enfermedad</h4>
-                                <p class="text-slate-600 text-sm mt-1">Externalizar la vigilancia. Reducir la carga cognitiva. "Quiero olvidarme del problema sin ponerme en riesgo."</p>
+                                <h4 data-i18n="desire_2_title" class="font-bold text-slate-800 text-lg">Dejar de pensar en la enfermedad</h4>
+                                <p data-i18n="desire_2_desc" class="text-slate-600 text-sm mt-1">Externalizar la vigilancia. Reducir la carga cognitiva. "Quiero olvidarme del problema sin ponerme en riesgo."</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">3</div>
                             <div>
-                                <h4 class="font-bold text-slate-800 text-lg">Tranquilidad moral</h4>
-                                <p class="text-slate-600 text-sm mt-1">La validación de que "estoy haciendo las cosas bien". La adherencia se convierte en validación personal y reduce la culpa.</p>
+                                <h4 data-i18n="desire_3_title" class="font-bold text-slate-800 text-lg">Tranquilidad moral</h4>
+                                <p data-i18n="desire_3_desc" class="text-slate-600 text-sm mt-1">La validación de que "estoy haciendo las cosas bien". La adherencia se convierte en validación personal y reduce la culpa.</p>
                             </div>
                         </div>
                     </div>
                     <div class="mt-8 p-4 bg-slate-50 rounded-xl border border-slate-200 text-center">
-                        <p class="text-sm text-slate-500 uppercase tracking-widest font-bold mb-2">Conclusión Psicológica</p>
-                        <p class="text-slate-700 font-medium">El deseo real es automatizar la vigilancia para reducir la ansiedad mental y validar la autonomía.</p>
+                        <p data-i18n="conclusion_title" class="text-sm text-slate-500 uppercase tracking-widest font-bold mb-2">Conclusión Psicológica</p>
+                        <p data-i18n="conclusion_text" class="text-slate-700 font-medium">El deseo real es automatizar la vigilancia para reducir la ansiedad mental y validar la autonomía.</p>
                     </div>
                 </div>
             </div>
@@ -152,17 +157,17 @@
         <section id="voc" class="scroll-mt-20">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">🗣️</span> La Voz del Cliente
+                    <span class="text-3xl">🗣️</span> <span data-i18n="voc_title">La Voz del Cliente</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                <p data-i18n="voc_desc" class="text-slate-600 max-w-3xl leading-relaxed">
                     Estas frases son "oro psicológico" extraído de entornos de confianza. Representan el lenguaje emocional real que debemos utilizar en nuestro copywriting. Filtra las frases para entender la perspectiva única de pacientes y cuidadores.
                 </p>
             </div>
 
             <div class="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
-                <button onclick="filterQuotes('todos')" class="filter-btn tab-active px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-todos">Todos</button>
-                <button onclick="filterQuotes('paciente')" class="filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-paciente">Pacientes</button>
-                <button onclick="filterQuotes('cuidador')" class="filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-cuidador">Cuidadores</button>
+                <button onclick="filterQuotes('todos')" data-i18n="filter_all" class="filter-btn tab-active px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-todos">Todos</button>
+                <button onclick="filterQuotes('paciente')" data-i18n="filter_patient" class="filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-paciente">Pacientes</button>
+                <button onclick="filterQuotes('cuidador')" data-i18n="filter_caregiver" class="filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-cuidador">Cuidadores</button>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="quotes-container">
@@ -172,32 +177,32 @@
         <section id="estrategia" class="scroll-mt-20">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                    <span class="text-3xl">🛡️</span> Barreras y Aceleradores
+                    <span class="text-3xl">🛡️</span> <span data-i18n="barriers_title">Barreras y Aceleradores</span>
                 </h2>
-                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                <p data-i18n="barriers_desc" class="text-slate-600 max-w-3xl leading-relaxed">
                     Esta sección contrapone las objeciones mentales (defensas del ego) con los disparadores emocionales que provocan la acción inmediata. Entender esta dinámica es fundamental para diseñar flujos de onboarding y páginas de venta efectivas que reduzcan la fricción y maximicen la conversión.
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2"><span class="text-2xl">🛑</span> Objeciones Mentales (Fricción)</h3>
+                    <h3 class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2"><span class="text-2xl">🛑</span> <span data-i18n="obj_title">Objeciones Mentales (Fricción)</span></h3>
                     <div class="space-y-4" id="objections-container">
                     </div>
                 </div>
 
                 <div>
-                    <h3 class="text-2xl font-bold text-blue-600 mb-6 flex items-center gap-2"><span class="text-2xl">⚡</span> Disparadores (Triggers)</h3>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-6 flex items-center gap-2"><span class="text-2xl">⚡</span> <span data-i18n="tri_title">Disparadores (Triggers)</span></h3>
                     <div class="space-y-4" id="triggers-container">
                     </div>
                 </div>
             </div>
             
             <div class="mt-16 bg-slate-800 text-white p-8 md:p-12 rounded-3xl shadow-xl text-center">
-                <h3 class="text-2xl md:text-3xl font-bold mb-4">La Batalla Psicológica Real</h3>
+                <h3 data-i18n="battle_title" class="text-2xl md:text-3xl font-bold mb-4">La Batalla Psicológica Real</h3>
                 <p class="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                    VitaMemo NO compite contra otras aplicaciones en la App Store. Compite contra la <strong>negación, la vergüenza, el agotamiento mental, el miedo al deterioro y el caos cognitivo</strong>. Gana cuando el usuario siente: <br><br>
-                    <span class="text-white font-bold italic text-2xl">"Ahora alguien —o algo— me ayuda a sostener mi vida."</span>
+                    <span data-i18n="battle_desc">VitaMemo NO compite contra otras aplicaciones en la App Store. Compite contra la <strong>negación, la vergüenza, el agotamiento mental, el miedo al deterioro y el caos cognitivo</strong>. Gana cuando el usuario siente:</span> <br><br>
+                    <span data-i18n="battle_quote" class="text-white font-bold italic text-2xl">"Ahora alguien —o algo— me ayuda a sostener mi vida."</span>
                 </p>
             </div>
         </section>
@@ -205,62 +210,210 @@
     </main>
 
     <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-slate-500">
-        <p>Dashboard estratégico basado en análisis de Neuromarketing y Psicología del Consumidor.</p>
+        <p data-i18n="footer">Dashboard estratégico basado en análisis de Neuromarketing y Psicología del Consumidor.</p>
     </footer>
 
     <script>
-        const profilesData = [
-            { id: 'adulto', title: 'Adulto Crónico', desc: 'Busca normalidad. Quiere gestionar su vida sin que la enfermedad defina su día a día.', data: [60, 80, 50, 90, 70] },
-            { id: 'cuidador', title: 'Hijo/a Cuidador', desc: 'Busca alivio de la responsabilidad y vigilancia constante. Alto nivel de agotamiento.', data: [95, 30, 85, 40, 90] },
-            { id: 'postcrisis', title: 'Persona Post-Crisis', desc: 'Ya vivió un susto médico por olvido. Su motor principal es la ansiedad anticipatoria.', data: [70, 95, 90, 80, 60] },
-            { id: 'recien', title: 'Recién Diagnosticado', desc: 'Abrumado por la "burocracia" de su cuerpo. Alta saturación por el aprendizaje de su nueva realidad.', data: [85, 70, 60, 50, 40] },
-            { id: 'saturado', title: 'Saturado Cognitivo', desc: 'Persona funcional con agenda explosiva. Ya no confía en su memoria natural.', data: [95, 40, 30, 80, 50] }
-        ];
+        let currentLang = localStorage.getItem('preferredLang') || (navigator.language.startsWith('en') ? 'en' : 'es');
 
-        const chartLabels = ['Carga Cognitiva / Estrés', 'Miedo al Deterioro', 'Ansiedad Anticipatoria', 'Necesidad de Autonomía', 'Preocupación Familiar'];
-
-        const fearsData = [
-            { label: 'Pérdida de Capacidad / Mente no confiable', value: 45, color: '#3b82f6', desc: 'Miedo a que el olvido sea evidencia de envejecimiento o deterioro.' },
-            { label: 'Convertirse en una Carga', value: 35, color: '#8b5cf6', desc: 'Pavor a la humillación social y a perder la independencia.' },
-            { label: 'Morir por error evitable', value: 20, color: '#f43f5e', desc: 'Ansiedad de que un pequeño olvido escale a crisis fatal.' }
-        ];
-
-        const quotesData = [
-            { type: 'paciente', text: "Siempre se me pasa alguna." },
-            { type: 'paciente', text: "No sé si ya la tomé o no." },
-            { type: 'paciente', text: "Tengo demasiadas cosas en la cabeza." },
-            { type: 'paciente', text: "Me estresa estar pendiente de las pastillas." },
-            { type: 'paciente', text: "Si no pongo alarma, me olvido." },
-            { type: 'paciente', text: "A veces tomo doble por miedo." },
-            { type: 'paciente', text: "Mi rutina es un desastre." },
-            { type: 'paciente', text: "No quiero depender de otros." },
-            { type: 'paciente', text: "Odio sentirme enfermo todo el tiempo." },
-            { type: 'cuidador', text: "Tengo que estar detrás de él/ella." },
-            { type: 'cuidador', text: "No confío en que se acuerde." },
-            { type: 'cuidador', text: "Me preocupa cuando no responde." },
-            { type: 'cuidador', text: "No sé si realmente tomó la medicación." },
-            { type: 'cuidador', text: "No puedo vigilar todo el día." },
-            { type: 'cuidador', text: "Estoy agotado mentalmente." }
-        ];
-
-        const objectionsData = [
-            { title: '1. "Yo puedo manejar esto solo."', desc: 'El usuario protege su autoestima. Admitir necesidad se siente como admitir fragilidad o envejecimiento.', action: 'Presentar la app como una optimización, no como un salvavidas.' },
-            { title: '2. "No quiero otra cosa más que administrar."', desc: 'Están mentalmente saturados. Rechazan lo que parece complejo, médico o burocrático.', action: 'Garantizar cero fricción. Diseño de interfaz ultra-simple y amigable.' },
-            { title: '3. "¿Y si igual termino ignorando las alarmas?"', desc: 'Herida de fracaso previo con otras alarmas. Piensan: "El problema soy yo".', action: 'Transmitir acompañamiento, no solo funcionalidad. Un sistema "casi humano".' }
-        ];
-
-        const triggersData = [
-            { title: '1. Un susto médico reciente', desc: 'Olvido de dosis, visita a emergencia o regaño médico. El disparador de urgencia más poderoso.', impact: 'Genera compra emocional inmediata ("Esto no me puede volver a pasar").' },
-            { title: '2. Promesa de "Descanso Mental"', desc: 'Entender que la app piensa, registra y verifica por ellos.', impact: 'Produce dopamina anticipatoria al reducir la carga cognitiva percibida.' },
-            { title: '3. Recuperación de Control', desc: 'Ver el historial verde y la confirmación de tomas.', impact: 'Activa la autonomía, generando orden y estabilidad personal.' },
-            { title: '4. Protección Familiar', desc: 'Comprar la app para no preocupar a hijos o parejas.', impact: 'Responsabilidad emocional visible. La app se vuelve un acto de amor.' }
-        ];
+        const i18n = {
+            es: {
+                nav_profiles: "Perfiles Psicológicos",
+                nav_emotions: "Miedos y Deseos",
+                nav_voc: "Voz del Cliente",
+                nav_strategy: "Barreras y Triggers",
+                hero_pre: "Análisis de Neuromarketing",
+                hero_title: "La App como Copiloto Invisible y Prótesis Cognitiva",
+                hero_desc: "El usuario no compra un software de recordatorios; compra una sensación de control sobre una amenaza silenciosa: <strong>el deterioro</strong>. Este dashboard interactivo desglosa la estrategia psicológica para conectar con la identidad, la autonomía y el miedo a la fragilidad de nuestro cliente ideal.",
+                hero_obj: "Objetivo: Vender la reparación de la autonomía",
+                profiles_title: "Perfiles Psicológicos",
+                profiles_desc: "Esta sección analiza los diferentes tipos de usuarios de VitaMemo. Aunque sus circunstancias varían, comparten un núcleo psicológico: la saturación cognitiva y el terror a que un \"error pequeño\" sea irreversible. Explora cada perfil para visualizar cómo se distribuye su carga emocional.",
+                profiles_select: "Selecciona un perfil",
+                emotions_title: "Eje Emocional: Miedos vs Deseos",
+                emotions_desc: "Las decisiones de compra son impulsadas por el sistema límbico. Aquí visualizamos los miedos profundos (aquellos que afectan el autoconcepto y rara vez se admiten) frente a los deseos secretos que la aplicación satisface. Entender este balance es crucial para la comunicación.",
+                fears_title: "Los 3 Miedos Inadmitidos",
+                desires_title: "Deseos Secretos de Compra",
+                desire_1_title: "Sentirse funcional otra vez",
+                desire_1_desc: `Recuperar la sensación de orden y estabilidad personal. "Quiero volver a sentir que tengo mi vida bajo control."`,
+                desire_2_title: "Dejar de pensar en la enfermedad",
+                desire_2_desc: `Externalizar la vigilancia. Reducir la carga cognitiva. "Quiero olvidarme del problema sin ponerme en riesgo."`,
+                desire_3_title: "Tranquilidad moral",
+                desire_3_desc: `La validación de que "estoy haciendo las cosas bien". La adherencia se convierte en validación personal y reduce la culpa.`,
+                conclusion_title: "Conclusión Psicológica",
+                conclusion_text: `El deseo real es automatizar la vigilancia para reducir la ansiedad mental y validar la autonomía.`,
+                voc_title: "La Voz del Cliente",
+                voc_desc: "Estas frases son \"oro psicológico\" extraído de entornos de confianza. Representan el lenguaje emocional real que debemos utilizar en nuestro copywriting. Filtra las frases para entender la perspectiva única de pacientes y cuidadores.",
+                filter_all: "Todos",
+                filter_patient: "Pacientes",
+                filter_caregiver: "Cuidadores",
+                barriers_title: "Barreras y Aceleradores",
+                barriers_desc: "Esta sección contrapone las objeciones mentales (defensas del ego) con los disparadores emocionales que provocan la acción inmediata. Entender esta dinámica es fundamental para diseñar flujos de onboarding y páginas de venta efectivas que reduzcan la fricción y maximicen la conversión.",
+                obj_title: "Objeciones Mentales (Fricción)",
+                tri_title: "Disparadores (Triggers)",
+                battle_title: "La Batalla Psicológica Real",
+                battle_desc: "VitaMemo NO compite contra otras aplicaciones en la App Store. Compite contra la <strong>negación, la vergüenza, el agotamiento mental, el miedo al deterioro y el caos cognitivo</strong>. Gana cuando el usuario siente:",
+                battle_quote: `"Ahora alguien —o algo— me ayuda a sostener mi vida."`,
+                footer: "Dashboard estratégico basado en análisis de Neuromarketing y Psicología del Consumidor.",
+                chart_labels: ['Carga Cognitiva / Estrés', 'Miedo al Deterioro', 'Ansiedad Anticipatoria', 'Necesidad de Autonomía', 'Preocupación Familiar'],
+                profiles_data: [
+                    { id: 'adulto', title: 'Adulto Crónico', desc: 'Busca normalidad. Quiere gestionar su vida sin que la enfermedad defina su día a día.', data: [60, 80, 50, 90, 70] },
+                    { id: 'cuidador', title: 'Hijo/a Cuidador', desc: 'Busca alivio de la responsabilidad y vigilancia constante. Alto nivel de agotamiento.', data: [95, 30, 85, 40, 90] },
+                    { id: 'postcrisis', title: 'Persona Post-Crisis', desc: 'Ya vivió un susto médico por olvido. Su motor principal es la ansiedad anticipatoria.', data: [70, 95, 90, 80, 60] },
+                    { id: 'recien', title: 'Recién Diagnosticado', desc: 'Abrumado por la "burocracia" de su cuerpo. Alta saturación por el aprendizaje de su nueva realidad.', data: [85, 70, 60, 50, 40] },
+                    { id: 'saturado', title: 'Saturado Cognitivo', desc: 'Persona funcional con agenda explosiva. Ya no confía en su memoria natural.', data: [95, 40, 30, 80, 50] }
+                ],
+                fears_data: [
+                    { label: 'Pérdida de Capacidad / Mente no confiable', value: 45, color: '#3b82f6', desc: 'Miedo a que el olvido sea evidencia de envejecimiento o deterioro.' },
+                    { label: 'Convertirse en una Carga', value: 35, color: '#8b5cf6', desc: 'Pavor a la humillación social y a perder la independencia.' },
+                    { label: 'Morir por error evitable', value: 20, color: '#f43f5e', desc: 'Ansiedad de que un pequeño olvido escale a crisis fatal.' }
+                ],
+                quotes_data: [
+                    { type: 'paciente', text: "Siempre se me pasa alguna.", title: 'Paciente' },
+                    { type: 'paciente', text: "No sé si ya la tomé o no.", title: 'Paciente' },
+                    { type: 'paciente', text: "Tengo demasiadas cosas en la cabeza.", title: 'Paciente' },
+                    { type: 'paciente', text: "Me estresa estar pendiente de las pastillas.", title: 'Paciente' },
+                    { type: 'paciente', text: "Si no pongo alarma, me olvido.", title: 'Paciente' },
+                    { type: 'paciente', text: "A veces tomo doble por miedo.", title: 'Paciente' },
+                    { type: 'paciente', text: "Mi rutina es un desastre.", title: 'Paciente' },
+                    { type: 'paciente', text: "No quiero depender de otros.", title: 'Paciente' },
+                    { type: 'paciente', text: "Odio sentirme enfermo todo el tiempo.", title: 'Paciente' },
+                    { type: 'cuidador', text: "Tengo que estar detrás de él/ella.", title: 'Cuidador' },
+                    { type: 'cuidador', text: "No confío en que se acuerde.", title: 'Cuidador' },
+                    { type: 'cuidador', text: "Me preocupa cuando no responde.", title: 'Cuidador' },
+                    { type: 'cuidador', text: "No sé si realmente tomó la medicación.", title: 'Cuidador' },
+                    { type: 'cuidador', text: "No puedo vigilar todo el día.", title: 'Cuidador' },
+                    { type: 'cuidador', text: "Estoy agotado mentalmente.", title: 'Cuidador' }
+                ],
+                objections_data: [
+                    { title: '1. "Yo puedo manejar esto solo."', desc: 'El usuario protege su autoestima. Admitir necesidad se siente como admitir fragilidad o envejecimiento.', action: 'Presentar la app como una optimización, no como un salvavidas.' },
+                    { title: '2. "No quiero otra cosa más que administrar."', desc: 'Están mentalmente saturados. Rechazan lo que parece complejo, médico o burocrático.', action: 'Garantizar cero fricción. Diseño de interfaz ultra-simple y amigable.' },
+                    { title: '3. "¿Y si igual termino ignorando las alarmas?"', desc: 'Herida de fracaso previo con otras alarmas. Piensan: "El problema soy yo".', action: 'Transmitir acompañamiento, no solo funcionalidad. Un sistema "casi humano".' }
+                ],
+                triggers_data: [
+                    { title: '1. Un susto médico reciente', desc: 'Olvido de dosis, visita a emergencia o regaño médico. El disparador de urgencia más poderoso.', impact: 'Genera compra emocional inmediata ("Esto no me puede volver a pasar").' },
+                    { title: '2. Promesa de "Descanso Mental"', desc: 'Entender que la app piensa, registra y verifica por ellos.', impact: 'Produce dopamina anticipatoria al reducir la carga cognitiva percibida.' },
+                    { title: '3. Recuperación de Control', desc: 'Ver el historial verde y la confirmación de tomas.', impact: 'Activa la autonomía, generando orden y estabilidad personal.' },
+                    { title: '4. Protección Familiar', desc: 'Comprar la app para no preocupar a hijos o parejas.', impact: 'Responsabilidad emocional visible. La app se vuelve un acto de amor.' }
+                ]
+            },
+            en: {
+                nav_profiles: "Psychological Profiles",
+                nav_emotions: "Fears and Desires",
+                nav_voc: "Voice of the Customer",
+                nav_strategy: "Barriers and Triggers",
+                hero_pre: "Neuromarketing Analysis",
+                hero_title: "The App as an Invisible Copilot and Cognitive Prosthesis",
+                hero_desc: "The user doesn't buy reminder software; they buy a sense of control over a silent threat: <strong>deterioration</strong>. This interactive dashboard breaks down the psychological strategy to connect with the identity, autonomy, and fear of fragility of our ideal client.",
+                hero_obj: "Objective: Selling the repair of autonomy",
+                profiles_title: "Psychological Profiles",
+                profiles_desc: "This section analyzes different types of VitaMemo users. Although their circumstances vary, they share a psychological core: cognitive saturation and the terror that a \"small mistake\" could be irreversible. Explore each profile to visualize how its emotional load is distributed.",
+                profiles_select: "Select a profile",
+                emotions_title: "Emotional Axis: Fears vs Desires",
+                emotions_desc: "Purchase decisions are driven by the limbic system. Here we visualize deep fears (those that affect self-concept and are rarely admitted) versus the secret desires the application satisfies. Understanding this balance is crucial for communication.",
+                fears_title: "The 3 Unadmitted Fears",
+                desires_title: "Secret Purchase Desires",
+                desire_1_title: "Feeling functional again",
+                desire_1_desc: `Recovering the sense of order and personal stability. "I want to feel like I have my life under control again."`,
+                desire_2_title: "Feeling less sick",
+                desire_2_desc: `Externalizing vigilance. Reducing cognitive load. "I want to forget about the problem without putting myself at risk."`,
+                desire_3_title: "Moral peace of mind",
+                desire_3_desc: `The validation that "I am doing things right". Adherence becomes personal validation and reduces guilt.`,
+                conclusion_title: "Psychological Conclusion",
+                conclusion_text: "The real desire is to automate surveillance to reduce mental anxiety and validate autonomy.",
+                voc_title: "Voice of the Customer",
+                voc_desc: "These phrases are \"psychological gold\" extracted from trust environments. They represent the real emotional language we should use in our copywriting. Filter the phrases to understand the unique perspective of patients and caregivers.",
+                filter_all: "All",
+                filter_patient: "Patients",
+                filter_caregiver: "Caregivers",
+                barriers_title: "Barriers and Accelerators",
+                barriers_desc: "This section pits mental objections (ego defenses) against emotional triggers that provoke immediate action. Understanding this dynamic is fundamental to designing effective onboarding flows and sales pages that reduce friction and maximize conversion.",
+                obj_title: "Mental Objections (Friction)",
+                tri_title: "Triggers",
+                battle_title: "The Real Psychological Battle",
+                battle_desc: "VitaMemo DOES NOT compete against other apps in the App Store. It competes against <strong>denial, shame, mental exhaustion, fear of deterioration, and cognitive chaos</strong>. It wins when the user feels:",
+                battle_quote: `"Now someone —or something— is helping me sustain my life."`,
+                footer: "Strategic dashboard based on Neuromarketing and Consumer Psychology analysis.",
+                chart_labels: ['Cognitive Load / Stress', 'Fear of Deterioration', 'Anticipatory Anxiety', 'Need for Autonomy', 'Family Concern'],
+                profiles_data: [
+                    { id: 'adulto', title: 'Chronic Adult', desc: 'Seeks normalcy. Wants to manage their life without the illness defining their day-to-day.', data: [60, 80, 50, 90, 70] },
+                    { id: 'cuidador', title: 'Child Caregiver', desc: 'Seeks relief from responsibility and constant vigilance. High level of burnout.', data: [95, 30, 85, 40, 90] },
+                    { id: 'postcrisis', title: 'Post-Crisis Individual', desc: 'Has already experienced a medical scare due to forgetfulness. Their main driver is anticipatory anxiety.', data: [70, 95, 90, 80, 60] },
+                    { id: 'recien', title: 'Newly Diagnosed', desc: 'Overwhelmed by the "bureaucracy" of their body. High saturation from learning their new reality.', data: [85, 70, 60, 50, 40] },
+                    { id: 'saturado', title: 'Cognitively Saturated', desc: 'Functional person with an explosive schedule. No longer trusts their natural memory.', data: [95, 40, 30, 80, 50] }
+                ],
+                fears_data: [
+                    { label: 'Loss of Capacity / Unreliable mind', value: 45, color: '#3b82f6', desc: 'Fear that forgetfulness is evidence of aging or deterioration.' },
+                    { label: 'Becoming a Burden', value: 35, color: '#8b5cf6', desc: 'Dread of social humiliation and losing independence.' },
+                    { label: 'Dying from avoidable error', value: 20, color: '#f43f5e', desc: 'Anxiety that a small forgetfulness will scale into a fatal crisis.' }
+                ],
+                quotes_data: [
+                    { type: 'paciente', text: "I always miss some.", title: 'Patient' },
+                    { type: 'paciente', text: `I don't know if I already took it or not.`, title: 'Patient' },
+                    { type: 'paciente', text: "I have too many things on my mind.", title: 'Patient' },
+                    { type: 'paciente', text: `It stresses me out to be pending on the pills.`, title: 'Patient' },
+                    { type: 'paciente', text: `If I don't set an alarm, I forget.`, title: 'Patient' },
+                    { type: 'paciente', text: "Sometimes I take double out of fear.", title: 'Patient' },
+                    { type: 'paciente', text: "My routine is a disaster.", title: 'Patient' },
+                    { type: 'paciente', text: `I don't want to depend on others.`, title: 'Patient' },
+                    { type: 'paciente', text: "I hate feeling sick all the time.", title: 'Patient' },
+                    { type: 'cuidador', text: "I have to be behind him/her.", title: 'Caregiver' },
+                    { type: 'cuidador', text: `I don't trust them to remember.`, title: 'Caregiver' },
+                    { type: 'cuidador', text: `I worry when they don't answer.`, title: 'Caregiver' },
+                    { type: 'cuidador', text: `I don't know if they really took the medication.`, title: 'Caregiver' },
+                    { type: 'cuidador', text: `I can't watch all day long.`, title: 'Caregiver' },
+                    { type: 'cuidador', text: "I am mentally exhausted.", title: 'Caregiver' }
+                ],
+                objections_data: [
+                    { title: `1. "I can handle this on my own."`, desc: `The user protects their self-esteem. Admitting need feels like admitting fragility or aging.`, action: `Present the app as an optimization, not a life-saver.` },
+                    { title: `2. "I don't want another thing to manage."`, desc: `They are mentally saturated. They reject what seems complex, medical, or bureaucratic.`, action: `Guarantee zero friction. Ultra-simple and friendly interface design.` },
+                    { title: `3. "What if I end up ignoring the alarms anyway?"`, desc: `Failure wound from previous alarms. They think: "The problem is me".`, action: `Convey accompaniment, not just functionality. A "near-human" system.` },
+                ],
+                triggers_data: [
+                    { title: '1. A recent medical scare', desc: 'Missed dose, emergency visit, or medical scolding. The most powerful urgency trigger.', impact: 'Generates immediate emotional purchase ("This cannot happen to me again").' },
+                    { title: '2. Promise of "Mental Rest"', desc: 'Understanding that the app thinks, records, and verifies for them.', impact: 'Produces anticipatory dopamine by reducing perceived cognitive load.' },
+                    { title: '3. Recovery of Control', desc: 'Seeing the green history and confirmation of doses.', impact: 'Activates autonomy, generating order and personal stability.' },
+                    { title: '4. Family Protection', desc: 'Buying the app to not worry children or partners.', impact: 'Visible emotional responsibility. The app becomes an act of love.' }
+                ]
+            }
+        };
 
         let radarChartInstance = null;
+        let fearsChartInstance = null;
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('preferredLang', currentLang);
+            updateContent();
+        }
+
+        function updateContent() {
+            const data = i18n[currentLang];
+            
+            // Update static elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (data[key]) {
+                    el.innerHTML = data[key];
+                }
+            });
+
+            // Update language switcher UI
+            document.getElementById('lang-flag').innerText = currentLang === 'es' ? '🇺🇸' : '🇪🇸';
+            document.getElementById('lang-text').innerText = currentLang === 'es' ? 'EN' : 'ES';
+
+            // Refresh dynamic parts
+            initProfileUI();
+            initFearsChart();
+            renderQuotes('todos');
+            renderStrategy();
+        }
 
         function initProfileUI() {
             const container = document.getElementById('profile-buttons');
-            profilesData.forEach((prof, index) => {
+            container.innerHTML = ''; // Clear for i18n
+            const profiles = i18n[currentLang].profiles_data;
+            
+            profiles.forEach((prof, index) => {
                 const btn = document.createElement('button');
                 btn.className = `w-full text-left px-5 py-4 rounded-xl border font-semibold transition-all duration-200 ${index === 0 ? 'border-blue-600 bg-blue-50 text-blue-800 shadow-sm' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`;
                 btn.innerText = prof.title;
@@ -271,7 +424,8 @@
         }
 
         function updateProfile(index, btnElement) {
-            const prof = profilesData[index];
+            const profiles = i18n[currentLang].profiles_data;
+            const prof = profiles[index];
             document.getElementById('profile-title').innerText = prof.title;
             document.getElementById('profile-desc').innerText = prof.desc;
 
@@ -286,13 +440,14 @@
             if (radarChartInstance) {
                 radarChartInstance.data.datasets[0].data = prof.data;
                 radarChartInstance.data.datasets[0].label = prof.title;
+                radarChartInstance.data.labels = i18n[currentLang].chart_labels;
                 radarChartInstance.update();
             } else {
                 const ctx = document.getElementById('profileChart').getContext('2d');
                 radarChartInstance = new Chart(ctx, {
                     type: 'radar',
                     data: {
-                        labels: chartLabels,
+                        labels: i18n[currentLang].chart_labels,
                         datasets: [{
                             label: prof.title,
                             data: prof.data,
@@ -332,14 +487,20 @@
         }
 
         function initFearsChart() {
+            const fears = i18n[currentLang].fears_data;
             const ctx = document.getElementById('fearsChart').getContext('2d');
-            new Chart(ctx, {
+            
+            if (fearsChartInstance) {
+                fearsChartInstance.destroy();
+            }
+
+            fearsChartInstance = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: fearsData.map(d => d.label),
+                    labels: fears.map(d => d.label),
                     datasets: [{
-                        data: fearsData.map(d => d.value),
-                        backgroundColor: fearsData.map(d => d.color),
+                        data: fears.map(d => d.value),
+                        backgroundColor: fears.map(d => d.color),
                         borderWidth: 0,
                         hoverOffset: 10
                     }]
@@ -366,7 +527,8 @@
             });
 
             const listContainer = document.getElementById('fears-list');
-            fearsData.forEach((fear, i) => {
+            listContainer.innerHTML = ''; // Clear for i18n
+            fears.forEach((fear, i) => {
                 const item = document.createElement('div');
                 item.className = 'flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100';
                 item.innerHTML = `
@@ -384,13 +546,13 @@
             const container = document.getElementById('quotes-container');
             container.innerHTML = '';
             
-            const filtered = filter === 'todos' ? quotesData : quotesData.filter(q => q.type === filter);
+            const quotes = i18n[currentLang].quotes_data;
+            const filtered = filter === 'todos' ? quotes : quotes.filter(q => q.type === filter);
             
             filtered.forEach(quote => {
                 const isPaciente = quote.type === 'paciente';
                 const icon = isPaciente ? '🩺' : '🤝';
                 const badgeColor = isPaciente ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700';
-                const title = isPaciente ? 'Paciente' : 'Cuidador';
 
                 const card = document.createElement('div');
                 card.className = 'quote-card bg-white p-6 rounded-2xl border border-slate-200 flex flex-col justify-between';
@@ -398,7 +560,7 @@
                     <p class="text-slate-700 text-lg italic mb-6">"${quote.text}"</p>
                     <div class="flex items-center gap-2 mt-auto">
                         <span class="text-xl">${icon}</span>
-                        <span class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${title}</span>
+                        <span class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${quote.title}</span>
                     </div>
                 `;
                 container.appendChild(card);
@@ -420,15 +582,19 @@
 
         function renderStrategy() {
             const objContainer = document.getElementById('objections-container');
-            objectionsData.forEach(obj => {
+            objContainer.innerHTML = ''; // Clear for i18n
+            const objections = i18n[currentLang].objections_data;
+            
+            objections.forEach(obj => {
                 const card = document.createElement('div');
                 card.className = 'bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group';
+                const strategyLabel = currentLang === 'es' ? 'Estrategia UI/UX' : 'UI/UX Strategy';
                 card.innerHTML = `
                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500"></div>
                     <h4 class="font-bold text-slate-800 text-lg mb-2">${obj.title}</h4>
                     <p class="text-slate-600 text-sm mb-4">${obj.desc}</p>
                     <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Estrategia UI/UX</p>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">${strategyLabel}</p>
                         <p class="text-sm text-slate-700">${obj.action}</p>
                     </div>
                 `;
@@ -436,15 +602,19 @@
             });
 
             const trigContainer = document.getElementById('triggers-container');
-            triggersData.forEach(trig => {
+            trigContainer.innerHTML = ''; // Clear for i18n
+            const triggers = i18n[currentLang].triggers_data;
+            
+            triggers.forEach(trig => {
                 const card = document.createElement('div');
                 card.className = 'bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden';
+                const impactLabel = currentLang === 'es' ? 'Impacto' : 'Impact';
                 card.innerHTML = `
                     <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
                     <h4 class="font-bold text-slate-800 text-lg mb-2">${trig.title}</h4>
                     <p class="text-slate-600 text-sm mb-4">${trig.desc}</p>
                     <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
-                        <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-1">Impacto</p>
+                        <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-1">${impactLabel}</p>
                         <p class="text-sm text-blue-800">${trig.impact}</p>
                     </div>
                 `;
@@ -453,10 +623,7 @@
         }
 
         window.onload = () => {
-            initProfileUI();
-            initFearsChart();
-            renderQuotes('todos');
-            renderStrategy();
+            updateContent();
         };
     </script>
 </body>

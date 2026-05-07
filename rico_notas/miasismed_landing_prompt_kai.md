@@ -17,6 +17,14 @@
 4. **Voz del Cliente:** Grid filtrable de testimonios cualitativos.
 5. **Barreras y Triggers:** Mapeo de objeciones vs disparadores de conversión.
 
+## 🌍 Soporte Multi-idioma (i18n)
+- **Sistema:** Motor ligero en JavaScript puro usando un objeto `i18n` centralizado.
+- **Implementación:** 
+    - Atributos `data-i18n` para elementos de texto estáticos.
+    - Función `updateContent(lang)` para refrescar el DOM y reinicializar gráficos con datos traducidos.
+    - Persistencia en `localStorage` con la clave `preferredLang`.
+- **Selector:** Botón toggle en el Navbar (ES/EN).
+
 ## 🎨 Guía de Estilo
 - **Paleta:** Calm Harmony (Slate/Neutrals con acentos Indigo/Blue).
 - **Enfoque:** Profesional, médico, confiable pero moderno.
