@@ -1,7 +1,7 @@
 # 🧠 Manual de Reconstrucción (Prompt Kai) - miasismed_landing
 
 ## 📋 Resumen del Proyecto
-**miasismed_landing** es una Landing Page estratégica diseñada para el análisis de neuromarketing del producto "VitaMemo". No es solo una página informativa, sino un dashboard interactivo para equipos de producto y marketing.
+**miasismed_landing** es una Landing Page estratégica diseñada para el análisis de neuromarketing del producto "MiAsisMed" (anteriormente VitaMemo). No es solo una página informativa, sino un dashboard interactivo para equipos de producto y marketing.
 
 ## 🛠️ Stack Tecnológico
 - **Core:** HTML5 Semántico.
