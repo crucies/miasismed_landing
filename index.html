@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Psicológico: VitaMemo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .tab-active { background-color: #2563eb; color: white; border-color: #2563eb; }
+        .tab-inactive { background-color: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 400px;
+            min-height: 300px;
+        }
+        .quote-card { transition: all 0.3s ease; }
+        .quote-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <!-- Chosen Palette: Calm Harmony (Slate/Neutrals with Indigo/Blue accents for trust/healthcare) -->
+    <!-- Application Structure Plan: The SPA is structured as an interactive strategic dashboard for product/marketing teams. It moves from a high-level conceptual overview (Hero) into deep-dive interactive sections. Section 1 (Profiles) uses a tabbed interface and a radar chart to dynamically show the varied psychological load of different users. Section 2 (Fears & Desires) uses a side-by-side comparison with a doughnut chart to visualize the weight of unadmitted fears. Section 3 (Voice of Customer) provides a filterable grid of quotes to build empathy. Section 4 (Objections & Triggers) uses an interactive card layout to show how to overcome mental barriers. This structure was chosen to transform a dense text document into a consumable, exploratory tool that visually connects psychological theory to marketing action. -->
+    <!-- Visualization & Content Choices: 
+        1. Profiles -> Goal: Compare psychological drivers -> Viz: Radar Chart (Chart.js) + Interactive Tabs -> Justifies showing how different personas index on stress/fear/control.
+        2. Deep Fears -> Goal: Inform on primary emotional blockers -> Viz: Doughnut Chart (Chart.js) -> Represents the estimated psychological weight of each fear.
+        3. VoC (Quotes) -> Goal: Organize & Explore qualitative data -> Viz: Filterable Masonry-style Grid (HTML/JS) -> Allows users to read raw emotions easily.
+        4. Strategy (Objections/Triggers) -> Goal: Inform & Organize -> Viz: Interactive flip/expand cards (HTML/CSS/JS) -> Maps the barrier directly to the solution. 
+        Library/Method: Chart.js for data viz. Tailwind for layout. Vanilla JS for state. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🧠</span>
+                    <span class="font-bold text-xl tracking-tight text-blue-700">VitaMemo<span class="text-slate-800 font-normal">Strategy</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#perfiles" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Perfiles Psicológicos</a>
+                    <a href="#emociones" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Miedos y Deseos</a>
+                    <a href="#voc" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Voz del Cliente</a>
+                    <a href="#estrategia" class="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">Barreras y Triggers</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-b from-slate-100 to-slate-50 py-16 md:py-24 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <p class="text-blue-600 font-bold uppercase tracking-wider text-sm mb-4">Análisis de Neuromarketing</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">La App como Copiloto Invisible y Prótesis Cognitiva</h1>
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
+                El usuario no compra un software de recordatorios; compra una sensación de control sobre una amenaza silenciosa: <strong>el deterioro</strong>. Este dashboard interactivo desglosa la estrategia psicológica para conectar con la identidad, la autonomía y el miedo a la fragilidad de nuestro cliente ideal.
+            </p>
+            <div class="inline-flex items-center justify-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
+                <span class="text-xl">🎯</span>
+                <span class="font-medium text-slate-700">Objetivo: Vender la reparación de la autonomía</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <section id="perfiles" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">👥</span> Perfiles Psicológicos
+                </h2>
+                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                    Esta sección analiza los diferentes tipos de usuarios de VitaMemo. Aunque sus circunstancias varían, comparten un núcleo psicológico: la saturación cognitiva y el terror a que un "error pequeño" sea irreversible. Explora cada perfil para visualizar cómo se distribuye su carga emocional.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="lg:col-span-4 flex flex-col gap-3" id="profile-buttons">
+                </div>
+                
+                <div class="lg:col-span-8 bg-slate-50 rounded-xl p-6 border border-slate-100 flex flex-col items-center justify-center">
+                    <div class="w-full mb-6 text-center">
+                        <h3 id="profile-title" class="text-2xl font-bold text-slate-800 mb-2">Selecciona un perfil</h3>
+                        <p id="profile-desc" class="text-slate-600 min-h-[3rem]"></p>
+                    </div>
+                    <div class="chart-container w-full">
+                        <canvas id="profileChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="emociones" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">⚖️</span> Eje Emocional: Miedos vs Deseos
+                </h2>
+                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                    Las decisiones de compra son impulsadas por el sistema límbico. Aquí visualizamos los miedos profundos (aquellos que afectan el autoconcepto y rara vez se admiten) frente a los deseos secretos que la aplicación satisface. Entender este balance es crucial para la comunicación.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Los 3 Miedos Inadmitidos</h3>
+                    <div class="chart-container mb-6">
+                        <canvas id="fearsChart"></canvas>
+                    </div>
+                    <div class="space-y-4" id="fears-list">
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Deseos Secretos de Compra</h3>
+                    <div class="space-y-6 mt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg">Sentirse funcional otra vez</h4>
+                                <p class="text-slate-600 text-sm mt-1">Recuperar la sensación de orden y estabilidad personal. "Quiero volver a sentir que tengo mi vida bajo control."</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg">Dejar de pensar en la enfermedad</h4>
+                                <p class="text-slate-600 text-sm mt-1">Externalizar la vigilancia. Reducir la carga cognitiva. "Quiero olvidarme del problema sin ponerme en riesgo."</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-100 text-green-700 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 text-xl font-bold">3</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg">Tranquilidad moral</h4>
+                                <p class="text-slate-600 text-sm mt-1">La validación de que "estoy haciendo las cosas bien". La adherencia se convierte en validación personal y reduce la culpa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                        <p class="text-sm text-slate-500 uppercase tracking-widest font-bold mb-2">Conclusión Psicológica</p>
+                        <p class="text-slate-700 font-medium">El deseo real es automatizar la vigilancia para reducir la ansiedad mental y validar la autonomía.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="voc" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">🗣️</span> La Voz del Cliente
+                </h2>
+                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                    Estas frases son "oro psicológico" extraído de entornos de confianza. Representan el lenguaje emocional real que debemos utilizar en nuestro copywriting. Filtra las frases para entender la perspectiva única de pacientes y cuidadores.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
+                <button onclick="filterQuotes('todos')" class="filter-btn tab-active px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-todos">Todos</button>
+                <button onclick="filterQuotes('paciente')" class="filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-paciente">Pacientes</button>
+                <button onclick="filterQuotes('cuidador')" class="filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm" id="btn-cuidador">Cuidadores</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="quotes-container">
+            </div>
+        </section>
+
+        <section id="estrategia" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="text-3xl">🛡️</span> Barreras y Aceleradores
+                </h2>
+                <p class="text-slate-600 max-w-3xl leading-relaxed">
+                    Esta sección contrapone las objeciones mentales (defensas del ego) con los disparadores emocionales que provocan la acción inmediata. Entender esta dinámica es fundamental para diseñar flujos de onboarding y páginas de venta efectivas que reduzcan la fricción y maximicen la conversión.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-red-600 mb-6 flex items-center gap-2"><span class="text-2xl">🛑</span> Objeciones Mentales (Fricción)</h3>
+                    <div class="space-y-4" id="objections-container">
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-600 mb-6 flex items-center gap-2"><span class="text-2xl">⚡</span> Disparadores (Triggers)</h3>
+                    <div class="space-y-4" id="triggers-container">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-slate-800 text-white p-8 md:p-12 rounded-3xl shadow-xl text-center">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4">La Batalla Psicológica Real</h3>
+                <p class="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+                    VitaMemo NO compite contra otras aplicaciones en la App Store. Compite contra la <strong>negación, la vergüenza, el agotamiento mental, el miedo al deterioro y el caos cognitivo</strong>. Gana cuando el usuario siente: <br><br>
+                    <span class="text-white font-bold italic text-2xl">"Ahora alguien —o algo— me ayuda a sostener mi vida."</span>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-slate-500">
+        <p>Dashboard estratégico basado en análisis de Neuromarketing y Psicología del Consumidor.</p>
+    </footer>
+
+    <script>
+        const profilesData = [
+            { id: 'adulto', title: 'Adulto Crónico', desc: 'Busca normalidad. Quiere gestionar su vida sin que la enfermedad defina su día a día.', data: [60, 80, 50, 90, 70] },
+            { id: 'cuidador', title: 'Hijo/a Cuidador', desc: 'Busca alivio de la responsabilidad y vigilancia constante. Alto nivel de agotamiento.', data: [95, 30, 85, 40, 90] },
+            { id: 'postcrisis', title: 'Persona Post-Crisis', desc: 'Ya vivió un susto médico por olvido. Su motor principal es la ansiedad anticipatoria.', data: [70, 95, 90, 80, 60] },
+            { id: 'recien', title: 'Recién Diagnosticado', desc: 'Abrumado por la "burocracia" de su cuerpo. Alta saturación por el aprendizaje de su nueva realidad.', data: [85, 70, 60, 50, 40] },
+            { id: 'saturado', title: 'Saturado Cognitivo', desc: 'Persona funcional con agenda explosiva. Ya no confía en su memoria natural.', data: [95, 40, 30, 80, 50] }
+        ];
+
+        const chartLabels = ['Carga Cognitiva / Estrés', 'Miedo al Deterioro', 'Ansiedad Anticipatoria', 'Necesidad de Autonomía', 'Preocupación Familiar'];
+
+        const fearsData = [
+            { label: 'Pérdida de Capacidad / Mente no confiable', value: 45, color: '#3b82f6', desc: 'Miedo a que el olvido sea evidencia de envejecimiento o deterioro.' },
+            { label: 'Convertirse en una Carga', value: 35, color: '#8b5cf6', desc: 'Pavor a la humillación social y a perder la independencia.' },
+            { label: 'Morir por error evitable', value: 20, color: '#f43f5e', desc: 'Ansiedad de que un pequeño olvido escale a crisis fatal.' }
+        ];
+
+        const quotesData = [
+            { type: 'paciente', text: "Siempre se me pasa alguna." },
+            { type: 'paciente', text: "No sé si ya la tomé o no." },
+            { type: 'paciente', text: "Tengo demasiadas cosas en la cabeza." },
+            { type: 'paciente', text: "Me estresa estar pendiente de las pastillas." },
+            { type: 'paciente', text: "Si no pongo alarma, me olvido." },
+            { type: 'paciente', text: "A veces tomo doble por miedo." },
+            { type: 'paciente', text: "Mi rutina es un desastre." },
+            { type: 'paciente', text: "No quiero depender de otros." },
+            { type: 'paciente', text: "Odio sentirme enfermo todo el tiempo." },
+            { type: 'cuidador', text: "Tengo que estar detrás de él/ella." },
+            { type: 'cuidador', text: "No confío en que se acuerde." },
+            { type: 'cuidador', text: "Me preocupa cuando no responde." },
+            { type: 'cuidador', text: "No sé si realmente tomó la medicación." },
+            { type: 'cuidador', text: "No puedo vigilar todo el día." },
+            { type: 'cuidador', text: "Estoy agotado mentalmente." }
+        ];
+
+        const objectionsData = [
+            { title: '1. "Yo puedo manejar esto solo."', desc: 'El usuario protege su autoestima. Admitir necesidad se siente como admitir fragilidad o envejecimiento.', action: 'Presentar la app como una optimización, no como un salvavidas.' },
+            { title: '2. "No quiero otra cosa más que administrar."', desc: 'Están mentalmente saturados. Rechazan lo que parece complejo, médico o burocrático.', action: 'Garantizar cero fricción. Diseño de interfaz ultra-simple y amigable.' },
+            { title: '3. "¿Y si igual termino ignorando las alarmas?"', desc: 'Herida de fracaso previo con otras alarmas. Piensan: "El problema soy yo".', action: 'Transmitir acompañamiento, no solo funcionalidad. Un sistema "casi humano".' }
+        ];
+
+        const triggersData = [
+            { title: '1. Un susto médico reciente', desc: 'Olvido de dosis, visita a emergencia o regaño médico. El disparador de urgencia más poderoso.', impact: 'Genera compra emocional inmediata ("Esto no me puede volver a pasar").' },
+            { title: '2. Promesa de "Descanso Mental"', desc: 'Entender que la app piensa, registra y verifica por ellos.', impact: 'Produce dopamina anticipatoria al reducir la carga cognitiva percibida.' },
+            { title: '3. Recuperación de Control', desc: 'Ver el historial verde y la confirmación de tomas.', impact: 'Activa la autonomía, generando orden y estabilidad personal.' },
+            { title: '4. Protección Familiar', desc: 'Comprar la app para no preocupar a hijos o parejas.', impact: 'Responsabilidad emocional visible. La app se vuelve un acto de amor.' }
+        ];
+
+        let radarChartInstance = null;
+
+        function initProfileUI() {
+            const container = document.getElementById('profile-buttons');
+            profilesData.forEach((prof, index) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left px-5 py-4 rounded-xl border font-semibold transition-all duration-200 ${index === 0 ? 'border-blue-600 bg-blue-50 text-blue-800 shadow-sm' : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}`;
+                btn.innerText = prof.title;
+                btn.onclick = () => updateProfile(index, btn);
+                container.appendChild(btn);
+            });
+            updateProfile(0, container.firstChild);
+        }
+
+        function updateProfile(index, btnElement) {
+            const prof = profilesData[index];
+            document.getElementById('profile-title').innerText = prof.title;
+            document.getElementById('profile-desc').innerText = prof.desc;
+
+            const buttons = document.getElementById('profile-buttons').children;
+            for(let b of buttons) {
+                b.className = 'w-full text-left px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-600 font-semibold transition-all duration-200 hover:bg-slate-50';
+            }
+            if(btnElement) {
+                btnElement.className = 'w-full text-left px-5 py-4 rounded-xl border border-blue-600 bg-blue-50 text-blue-800 font-semibold shadow-sm transition-all duration-200';
+            }
+
+            if (radarChartInstance) {
+                radarChartInstance.data.datasets[0].data = prof.data;
+                radarChartInstance.data.datasets[0].label = prof.title;
+                radarChartInstance.update();
+            } else {
+                const ctx = document.getElementById('profileChart').getContext('2d');
+                radarChartInstance = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: chartLabels,
+                        datasets: [{
+                            label: prof.title,
+                            data: prof.data,
+                            backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                            borderColor: 'rgba(37, 99, 235, 1)',
+                            pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(37, 99, 235, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(0,0,0,0.05)' },
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                pointLabels: { font: { family: 'Inter', size: 12 }, color: '#475569' },
+                                ticks: { display: false, min: 0, max: 100 }
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                                titleFont: { family: 'Inter', size: 13 },
+                                bodyFont: { family: 'Inter', size: 13 },
+                                padding: 12,
+                                cornerRadius: 8
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function initFearsChart() {
+            const ctx = document.getElementById('fearsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: fearsData.map(d => d.label),
+                    datasets: [{
+                        data: fearsData.map(d => d.value),
+                        backgroundColor: fearsData.map(d => d.color),
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            bodyFont: { family: 'Inter', size: 14 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const listContainer = document.getElementById('fears-list');
+            fearsData.forEach((fear, i) => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100';
+                item.innerHTML = `
+                    <div class="w-4 h-4 rounded-full flex-shrink-0" style="background-color: ${fear.color}"></div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-sm">${fear.label} (${fear.value}%)</p>
+                        <p class="text-xs text-slate-500 mt-1">${fear.desc}</p>
+                    </div>
+                `;
+                listContainer.appendChild(item);
+            });
+        }
+
+        function renderQuotes(filter) {
+            const container = document.getElementById('quotes-container');
+            container.innerHTML = '';
+            
+            const filtered = filter === 'todos' ? quotesData : quotesData.filter(q => q.type === filter);
+            
+            filtered.forEach(quote => {
+                const isPaciente = quote.type === 'paciente';
+                const icon = isPaciente ? '🩺' : '🤝';
+                const badgeColor = isPaciente ? 'bg-blue-100 text-blue-700' : 'bg-purple-100 text-purple-700';
+                const title = isPaciente ? 'Paciente' : 'Cuidador';
+
+                const card = document.createElement('div');
+                card.className = 'quote-card bg-white p-6 rounded-2xl border border-slate-200 flex flex-col justify-between';
+                card.innerHTML = `
+                    <p class="text-slate-700 text-lg italic mb-6">"${quote.text}"</p>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-xl">${icon}</span>
+                        <span class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">${title}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterQuotes(type) {
+            const buttons = ['todos', 'paciente', 'cuidador'];
+            buttons.forEach(btn => {
+                const el = document.getElementById(`btn-${btn}`);
+                if(btn === type) {
+                    el.className = 'filter-btn tab-active px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm';
+                } else {
+                    el.className = 'filter-btn tab-inactive px-6 py-2 rounded-full font-medium text-sm transition-colors shadow-sm hover:bg-slate-200';
+                }
+            });
+            renderQuotes(type);
+        }
+
+        function renderStrategy() {
+            const objContainer = document.getElementById('objections-container');
+            objectionsData.forEach(obj => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group';
+                card.innerHTML = `
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-red-500"></div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">${obj.title}</h4>
+                    <p class="text-slate-600 text-sm mb-4">${obj.desc}</p>
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Estrategia UI/UX</p>
+                        <p class="text-sm text-slate-700">${obj.action}</p>
+                    </div>
+                `;
+                objContainer.appendChild(card);
+            });
+
+            const trigContainer = document.getElementById('triggers-container');
+            triggersData.forEach(trig => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden';
+                card.innerHTML = `
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">${trig.title}</h4>
+                    <p class="text-slate-600 text-sm mb-4">${trig.desc}</p>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                        <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-1">Impacto</p>
+                        <p class="text-sm text-blue-800">${trig.impact}</p>
+                    </div>
+                `;
+                trigContainer.appendChild(card);
+            });
+        }
+
+        window.onload = () => {
+            initProfileUI();
+            initFearsChart();
+            renderQuotes('todos');
+            renderStrategy();
+        };
+    </script>
+</body>
+</html>
