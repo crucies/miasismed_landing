@@ -1,6 +1,11 @@
 # 📜 Bitácora de Versiones - miasismed_landing
 
-## [1.1.0] - 2026-05-07
+## [1.2.0] - 2026-05-08
+### ✨ Avances
+- **Prueba Social Dinámica:** Adición de la sección "Impacto en Números" con métricas clave (adherencia, carga mental, ansiedad).
+- **Inyección i18n de Stats:** Integración de datos estadísticos en el motor de idiomas para visualización dinámica.
+- **Optimización de Copy:** Refuerzo de los disparadores de confianza mediante datos estadísticos en la vista de cliente.
+
 ### ✨ Avances
 - **Versión Cliente (B2C):** Implementación de una vista de ventas de alta conversión integrada en la misma página.
 - **Modos de Vista:** Añadido toggle en el Navbar para alternar entre "Análisis Estratégico" (B2B) y "Landing de Ventas" (B2C).
